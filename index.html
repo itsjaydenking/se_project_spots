@@ -13,6 +13,7 @@
     </header>
     <div class="page">
       <main class="main">
+        <!-- This is the Profile Section -->
         <section class="profile">
           <div class="profile__info">
             <img
@@ -20,20 +21,29 @@
               alt="Bessie Coleman"
               class="profile__avatar"
             />
-            <h2 class="profile__name">Bessie Coleman</h2>
-            <p class="profile__description">Civil Aviator</p>
+            <div class="profile__text-group">
+              <div>
+                <h2 class="profile__name">
+                  Bessie Coleman
+                </h2>
+                <p class="profile__description">
+                  Civil Aviator
+                </p>
+              </div>
+              <button class="profile__edit-button">
+                <img src="./images/edit-icon.svg" alt="Edit icon" />
+                Edit Profile
+              </button>
+            </div>
           </div>
-          <div class="profile__buttons">
-            <button class="profile__edit-button">
-              <img src="./images/edit-icon.svg" alt="Edit Button" /> Edit
-              Profile
-            </button>
-            <button class="profile__new-post-button">
-              <img src="./images/plus-icon.svg" alt="Plus Button" />New Post
-            </button>
-          </div>
+
+          <button class="profile__new-post-button">
+            <img src="./images/plus-icon.svg" alt="Plus Button" />
+            New Post
+          </button>
         </section>
 
+        <!-- This is the Posts Section -->
         <section class="cards">
           <article class="card">
             <img
@@ -108,6 +118,7 @@
           </article>
         </section>
       </main>
+      <!-- This is the Footer Section -->
 
       <footer class="footer">2025 &copy; Spots</footer>
     </div>
