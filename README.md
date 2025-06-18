@@ -1,21 +1,39 @@
 # Project 3: Spots
 
-### Overview  
+A responsive web page project built as part of the TripleTen curriculum.
 
-* Intro  
-* Figma  
-* Images  
-  
-**Intro**
-  
-This project is made so all the elements are displayed correctly on popular screen sizes. We recommend investing more time in completing this project, since it's more difficult than previous ones.  
-  
-**Figma**  
-  
-* [Link to the project on Figma](https://www.figma.com/file/BBNm2bC3lj8QQMHlnqRsga/Sprint-3-Project-%E2%80%94-Spots?type=design&node-id=2%3A60&mode=design&t=afgNFybdorZO6cQo-1)
-  
-**Images**  
-  
-The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster. 
-  
-Good luck and have fun!
+## Overview
+
+Spots is a simple, responsive landing page that displays a user profile and a collection of posts (cards). The layout adapts to different screen sizes, ensuring a consistent and visually appealing experience on desktop, tablet, and mobile devices.
+
+## Features
+
+- Responsive design using CSS Grid and Flexbox
+- User profile section with avatar, name, description, and edit/new post buttons
+- Posts section displaying a grid of cards with images and titles
+- Custom fonts and icons
+- Clean UI
+
+## Project Structure
+
+- `blocks/` — CSS files for BEM blocks (header, main, profile, cards, etc.)
+- `images/` — Image assets and icons
+- `pages/` — Main page-level CSS
+- `vendor/` — Third-party CSS (normalize, fonts)
+- `index.html` — Main HTML file
+
+## Technologies Used
+
+- HTML5
+- CSS3 (Grid, Flexbox)
+- [Normalize.css](vendor/normalize.css)
+- [Poppins Font](vendor/fonts.css)
+
+## License
+
+Fonts are licensed under the SIL Open Font License (see [`vendor/fonts/Poppins/OFL.txt`](vendor/fonts/Poppins/OFL.txt)).
+
+## Additional Links
+- [Github Pages](link here)
+- [Video Review](link here)
+

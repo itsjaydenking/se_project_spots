@@ -32,7 +32,7 @@
   font-weight: 500;
   font-size: 32px;
   line-height: 100%;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   color: #212121;
   margin: 0 0 12px;
   padding: 0;
@@ -48,7 +48,7 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 100%;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   margin: 0;
   padding: 0;
   display: -webkit-box;
@@ -69,7 +69,7 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 100%;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   cursor: pointer;
   align-self: flex-start;
   opacity: 70%;
@@ -93,7 +93,7 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 100%;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -111,4 +111,55 @@
 
 .profile__new-post-button:hover {
   opacity: 70%;
+}
+
+/* 881px to 1320px — Tablet: 2 cards */
+@media screen and (max-width: 1320px) and (min-width: 881px) {
+  .profile {
+    margin: 1vh 1vw;
+  }
+}
+
+/* 631px to 880px — Tablet: 1 card with desktop profile */
+@media screen and (max-width: 880px) and (min-width: 631px) {
+  .profile {
+    margin: 1vh 1vw;
+  }
+}
+
+/* 630px and below — Mobile view */
+@media screen and (max-width: 630px) {
+  .profile {
+    flex-direction: column;
+    margin: 0 3vw 3vh;
+    gap: 16px;
+  }
+
+  .profile__avatar {
+    width: 150px;
+    height: 150px;
+  }
+
+  .profile__info {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile__name {
+    margin-bottom: 1vh;
+  }
+
+  .profile__description {
+    width: 100%;
+    margin-bottom: 4vh;
+  }
+
+  .profile__edit-button {
+    width: 100%;
+  }
+
+  .profile__new-post-button {
+    width: 100%;
+  }
 }
