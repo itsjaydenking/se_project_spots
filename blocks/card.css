@@ -11,7 +11,7 @@
   object-fit: cover;
   display: block;
   margin-bottom: 0;
-  border-radius: 5%;
+  border-radius: 8px;
 }
 
 .card__footer {
