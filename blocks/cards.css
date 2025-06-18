@@ -1,0 +1,35 @@
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 20px;
+  row-gap: 0px;
+  margin: 0 80px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(33, 33, 33, 0.3);
+}
+
+/* 881px to 1320px — Tablet: 2 cards */
+@media screen and (max-width: 1320px) and (min-width: 881px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+    margin: 1vw;
+    row-gap: 1vh;
+  }
+}
+
+/* 631px to 880px — Tablet: 1 card with desktop profile */
+@media screen and (max-width: 880px) and (min-width: 631px) {
+  .cards {
+    grid-template-columns: 1fr;
+    row-gap: 1vh;
+    margin: 1vw;
+  }
+}
+
+/* 630px and below — Mobile view */
+@media screen and (max-width: 630px) {
+  .cards {
+    grid-template-columns: 1fr;
+    margin: 3vw;
+  }
+}

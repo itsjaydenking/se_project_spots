@@ -1,0 +1,14 @@
+.main {
+  max-width: max-content;
+  padding: 34px 20px 2vh;
+  background-color: #fcf5e5;
+  margin: 0 auto;
+}
+
+/* 630px and below — Mobile view */
+@media screen and (max-width: 630px) {
+  .main {
+    max-width: 100%;
+    padding: 2vh 1vw;
+  }
+}
