@@ -34,6 +34,6 @@ Spots is a simple, responsive landing page that displays a user profile and a co
 Fonts are licensed under the SIL Open Font License (see [`vendor/fonts/Poppins/OFL.txt`](vendor/fonts/Poppins/OFL.txt)).
 
 ## Additional Links
-- [Github Pages](link here)
+- [Github Pages](https://itsjaydenking.github.io/se_project_spots/)
 - [Video Review](https://drive.google.com/file/d/1rdJ3PKwnR3Se2SI9gV-TCxhHTKQpz3x-/view?usp=sharing)
 
