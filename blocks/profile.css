@@ -19,7 +19,7 @@
   border-radius: 8px;
 }
 
-.profile__text-group {
+.profile__content {
   display: flex;
   justify-content: space-between;
   margin: 0;
@@ -113,17 +113,10 @@
   opacity: 70%;
 }
 
-/* 881px to 1320px — Tablet: 2 cards */
-@media screen and (max-width: 1320px) and (min-width: 881px) {
+/* Tablet: 2 cards */
+@media screen and (max-width: 1024px) {
   .profile {
-    margin: 1vh 1vw;
-  }
-}
-
-/* 631px to 880px — Tablet: 1 card with desktop profile */
-@media screen and (max-width: 880px) and (min-width: 631px) {
-  .profile {
-    margin: 1vh 1vw;
+    margin: 10px;
   }
 }
 
@@ -131,13 +124,13 @@
 @media screen and (max-width: 630px) {
   .profile {
     flex-direction: column;
-    margin: 0 3vw 3vh;
+    margin: 0 12px 12px;
     gap: 16px;
   }
 
   .profile__avatar {
-    width: 150px;
-    height: 150px;
+    width: 80px;
+    height: 80px;
   }
 
   .profile__info {
@@ -146,17 +139,14 @@
     text-align: center;
   }
 
-  .profile__name {
-    margin-bottom: 1vh;
-  }
-
   .profile__description {
     width: 100%;
-    margin-bottom: 4vh;
+    margin-bottom: 32px;
   }
 
   .profile__edit-button {
     width: 100%;
+    margin-bottom: 20px;
   }
 
   .profile__new-post-button {

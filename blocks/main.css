@@ -1,6 +1,6 @@
 .main {
   max-width: max-content;
-  padding: 34px 20px 2vh;
+  padding: 34px 20px 16px;
   background-color: #fcf5e5;
   margin: 0 auto;
 }
@@ -9,6 +9,6 @@
 @media screen and (max-width: 630px) {
   .main {
     max-width: 100%;
-    padding: 2vh 1vw;
+    padding: 24px 6px;
   }
 }
