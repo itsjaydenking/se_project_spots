@@ -3,7 +3,7 @@
   grid-template-columns: repeat(auto-fit, 413px);
   column-gap: 20px;
   row-gap: 40px;
-  padding-bottom: 20px;
+  padding-bottom: 40px;
   border-bottom: 1px solid rgba(33, 33, 33, 0.3);
   justify-content: center;
 }
@@ -20,7 +20,7 @@
 @media screen and (max-width: 630px) {
   .cards {
     grid-template-columns: repeat(auto-fit, 288px);
-    margin: 18px;
     row-gap: 20px;
+    padding-bottom: 20px;
   }
 }
