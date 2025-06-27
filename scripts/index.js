@@ -35,12 +35,10 @@ function handleProfileFormSubmit(evt) {
   // Get the values of each form field from the value
   const newName = nameInput.value;
   const newDescription = descriptionInput.value;
-  // property of the corresponding input element.
 
   // Insert these new values into the textContent
   profileName.textContent = newName;
   profileDescription.textContent = newDescription;
-  // property of the corresponding profile elements.
 
   // Close the modal.
   editProfileModal.classList.remove("modal_is-opened");
@@ -80,37 +78,6 @@ function handleAddCardSubmit(evt) {
   // Close the modal.
   newPostModal.classList.remove("modal_is-opened");
 }
-
-// Uncomment the following code to add a new card to the cards container.
-/*
-function handleAddCardSubmit(evt) {
-  evt.preventDefault();
-
-  const linkValue = linkInput.value;
-  const captionValue = captionInput.value;
-
-  const newCard = document.createElement("div");
-  newCard.classList.add("card");
-  newCard.innerHTML = `
-    <img
-      src="${linkValue}"
-      alt="${captionValue}"
-      class="card__image"
-    />
-    <div class="card__footer">
-      <h2 class="card__title">${captionValue}</h2>
-      <button class="card__like-button" type="button"></button>
-    </div>
-  `;
-
-  cardsContainer.prepend(newCard);
-
-  linkInput.value = "";
-  captionInput.value = "";
-
-  newPostModal.classList.remove("modal_is-opened");
-}
-*/
 
 // Create the submit listener.
 addCardFormElement.addEventListener("submit", handleAddCardSubmit);
