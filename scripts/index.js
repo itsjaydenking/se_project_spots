@@ -10,8 +10,6 @@ const nameInput = editProfileModal.querySelector("#profile-name-input");
 const descriptionInput = editProfileModal.querySelector(
   "#profile-description-input"
 );
-// const profileFormSubmitButton =
-//   editProfileModal.querySelector(".modal__submit-btn");
 
 const profileContentElement = document.querySelector(".profile__content");
 const profileName = profileContentElement.querySelector(".profile__name"); // Use querySelector()
@@ -84,33 +82,35 @@ function handleAddCardSubmit(evt) {
 }
 
 // Uncomment the following code to add a new card to the cards container.
-// function handleAddCardSubmit(evt) {
-//   evt.preventDefault();
+/*
+function handleAddCardSubmit(evt) {
+  evt.preventDefault();
 
-//   const linkValue = linkInput.value;
-//   const captionValue = captionInput.value;
+  const linkValue = linkInput.value;
+  const captionValue = captionInput.value;
 
-//   const newCard = document.createElement("div");
-//   newCard.classList.add("card");
-//   newCard.innerHTML = `
-//     <img
-//       src="${linkValue}"
-//       alt="${captionValue}"
-//       class="card__image"
-//     />
-//     <div class="card__footer">
-//       <h2 class="card__title">${captionValue}</h2>
-//       <button class="card__like-button" type="button"></button>
-//     </div>
-//   `;
+  const newCard = document.createElement("div");
+  newCard.classList.add("card");
+  newCard.innerHTML = `
+    <img
+      src="${linkValue}"
+      alt="${captionValue}"
+      class="card__image"
+    />
+    <div class="card__footer">
+      <h2 class="card__title">${captionValue}</h2>
+      <button class="card__like-button" type="button"></button>
+    </div>
+  `;
 
-//   cardsContainer.prepend(newCard);
+  cardsContainer.prepend(newCard);
 
-//   linkInput.value = "";
-//   captionInput.value = "";
+  linkInput.value = "";
+  captionInput.value = "";
 
-//   newPostModal.classList.remove("modal_is-opened");
-// }
+  newPostModal.classList.remove("modal_is-opened");
+}
+*/
 
 // Create the submit listener.
 addCardFormElement.addEventListener("submit", handleAddCardSubmit);
