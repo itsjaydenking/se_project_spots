@@ -42,14 +42,33 @@ const profileDescription = profileContentElement.querySelector(
   ".profile__description"
 );
 
+// New Post Modal Functionality
+const newPostButton = document.querySelector(".profile__new-post-button");
+const newPostModal = document.querySelector("#new-post-modal");
+const closeNewPost = newPostModal.querySelector(".modal__close-btn");
+
+const addCardFormElement = newPostModal.querySelector(".modal__form");
+const linkInput = newPostModal.querySelector("#image-link-input");
+const captionInput = newPostModal.querySelector("#image-caption-input");
+
+// Declare the openModal() function
+function openModal(modal) {
+  modal.classList.add("modal_is-opened");
+}
+
+// Declare the closeModal() function
+function closeModal(modal) {
+  modal.classList.remove("modal_is-opened");
+}
+
 editProfileButton.addEventListener("click", () => {
   nameInput.value = profileName.textContent;
   descriptionInput.value = profileDescription.textContent;
-  editProfileModal.classList.add("modal_is-opened");
+  openModal(editProfileModal);
 });
 
 closeEditProfile.addEventListener("click", () => {
-  editProfileModal.classList.remove("modal_is-opened");
+  closeModal(editProfileModal);
 });
 
 // Create the form submission handler.
@@ -66,27 +85,18 @@ function handleProfileFormSubmit(evt) {
   profileDescription.textContent = newDescription;
 
   // Close the modal.
-  editProfileModal.classList.remove("modal_is-opened");
+  closeModal(editProfileModal);
 }
 
 // Set the submit listener.
 profileFormElement.addEventListener("submit", handleProfileFormSubmit);
 
-// New Post Modal Functionality
-const newPostButton = document.querySelector(".profile__new-post-button");
-const newPostModal = document.querySelector("#new-post-modal");
-const closeNewPost = newPostModal.querySelector(".modal__close-btn");
-
-const addCardFormElement = newPostModal.querySelector(".modal__form");
-const linkInput = newPostModal.querySelector("#image-link-input");
-const captionInput = newPostModal.querySelector("#image-caption-input"); // Use querySelector()
-
 newPostButton.addEventListener("click", () => {
-  newPostModal.classList.add("modal_is-opened");
+  openModal(newPostModal);
 });
 
 closeNewPost.addEventListener("click", () => {
-  newPostModal.classList.remove("modal_is-opened");
+  closeModal(newPostModal);
 });
 
 // Create the form submission handler.
@@ -101,7 +111,7 @@ function handleAddCardSubmit(evt) {
   console.log("Image Link:", linkValue);
   console.log("Caption:", captionValue);
   // Close the modal.
-  newPostModal.classList.remove("modal_is-opened");
+  closeModal(newPostModal);
 }
 
 // Create the submit listener.
