@@ -1,26 +1,21 @@
-.cards {
+.cards__list {
   display: grid;
   grid-template-columns: repeat(auto-fit, 413px);
   column-gap: 20px;
   row-gap: 40px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  justify-content: center;
   padding-bottom: 40px;
   border-bottom: 1px solid rgba(33, 33, 33, 0.3);
-  justify-content: center;
 }
 
-/* Tablet: 2 cards */
-/* @media screen and (max-width: 1024px) {
-  .cards {
-    margin: 12px;
-    row-gap: 12px;
-  }
-} */
-
-/* 630px and below — Mobile view */
-@media screen and (max-width: 630px) {
-  .cards {
-    grid-template-columns: repeat(auto-fit, 288px);
+/* 768px and below — Mobile view */
+@media screen and (max-width: 768px) {
+  .cards__list {
     row-gap: 20px;
     padding-bottom: 20px;
+    grid-template-columns: repeat(auto-fit, 288px);
   }
 }
