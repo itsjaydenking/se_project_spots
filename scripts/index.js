@@ -169,6 +169,10 @@ function handleAddCardSubmit(evt) {
   // Create a new card element using the getCardElement function.
   const newCardElement = getCardElement(newCard);
   cardsList.prepend(newCardElement);
+
+  captionInput.value = "";
+  linkInput.value = "";
+
   // Close the modal.
   closeModal(newPostModal);
 }
