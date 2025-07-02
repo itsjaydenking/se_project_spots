@@ -170,8 +170,7 @@ function handleAddCardSubmit(evt) {
   const newCardElement = getCardElement(newCard);
   cardsList.prepend(newCardElement);
 
-  captionInput.value = "";
-  linkInput.value = "";
+  addCardFormElement.reset(); // Reset the form fields
 
   // Close the modal.
   closeModal(newPostModal);
