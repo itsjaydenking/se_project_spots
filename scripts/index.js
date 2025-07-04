@@ -41,7 +41,6 @@ const setupModalClose = (modal) => {
   });
 };
 
-
 const closeAllModals = () => {
   document.querySelectorAll(".modal_is-opened").forEach(closeModal);
 };
@@ -69,6 +68,7 @@ const newPostButton = qs(".profile__new-post-button");
 const addCardForm = qs(".modal__form", newPostModal);
 const linkInput = qs("#image-link-input", newPostModal);
 const captionInput = qs("#image-caption-input", newPostModal);
+const cardSubmitButton = qs(".modal__submit-btn", newPostModal);
 
 // === CARD TEMPLATE AND LIST ===
 const cardTemplate = qs("#card-template").content.querySelector(".card");
@@ -124,6 +124,7 @@ profileForm.addEventListener("submit", (e) => {
   e.preventDefault();
   profileName.textContent = nameInput.value;
   profileDescription.textContent = descriptionInput.value;
+  resetValidation(profileForm, settings);
   closeModal(editProfileModal);
 });
 
@@ -139,6 +140,7 @@ addCardForm.addEventListener("submit", (e) => {
   };
   cardsList.prepend(createCardElement(newCard));
   addCardForm.reset();
+  disableButton(cardSubmitButton, settings);
   closeModal(newPostModal);
 });
 
@@ -148,7 +150,6 @@ document.addEventListener("keydown", (e) => {
     closeAllModals();
   }
 });
-
 
 // === INITIAL CARDS ===
 initialCards.forEach((card) => {

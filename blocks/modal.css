@@ -95,12 +95,24 @@
   box-sizing: border-box;
 }
 
-.model__input:hover {
+.modal__input:hover {
   opacity: 100%;
 }
 
 .modal__input::placeholder {
   opacity: 40%;
+}
+
+.modal__input_type_error {
+  border-color: rgba(255, 0, 0, 0.6);
+}
+
+.modal__error {
+  display: block;
+  color: #ff0000;
+  font-size: 16px;
+  margin-top: 8px;
+  opacity: 70%;
 }
 
 .modal__submit-btn {
@@ -115,7 +127,17 @@
   cursor: pointer;
 }
 
-.modal__image-container {
+.modal__submit-btn:hover {
+  background-color: #1a1a1a;
+}
+
+.modal__submit-btn_disabled {
+  background-color: #21212154;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.modal__submit-btn .modal__image-container {
   position: relative;
 }
 
