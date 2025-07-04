@@ -1,11 +1,29 @@
 // === CONFIG ===
 const initialCards = [
-  { name: "Val Thorens", link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg" },
-  { name: "Restaurant terrace", link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/2-photo-by-ceiline-from-pexels.jpg" },
-  { name: "An outdoor cafe", link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/3-photo-by-tubanur-dogan-from-pexels.jpg" },
-  { name: "A very long bridge, over the forest and through the trees", link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/4-photo-by-maurice-laschet-from-pexels.jpg" },
-  { name: "Tunnel with morning light", link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/5-photo-by-van-anh-nguyen-from-pexels.jpg" },
-  { name: "Mountain house", link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg" },
+  {
+    name: "Val Thorens",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
+  },
+  {
+    name: "Restaurant terrace",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/2-photo-by-ceiline-from-pexels.jpg",
+  },
+  {
+    name: "An outdoor cafe",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/3-photo-by-tubanur-dogan-from-pexels.jpg",
+  },
+  {
+    name: "A very long bridge, over the forest and through the trees",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/4-photo-by-maurice-laschet-from-pexels.jpg",
+  },
+  {
+    name: "Tunnel with morning light",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/5-photo-by-van-anh-nguyen-from-pexels.jpg",
+  },
+  {
+    name: "Mountain house",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
+  },
 ];
 
 // === UTILITY FUNCTIONS ===
@@ -15,10 +33,17 @@ const openModal = (modal) => modal.classList.add("modal_is-opened");
 const closeModal = (modal) => modal.classList.remove("modal_is-opened");
 
 const setupModalClose = (modal) => {
-  qs(".modal__close-btn", modal).addEventListener("click", () => closeModal(modal));
+  qs(".modal__close-btn", modal).addEventListener("click", () =>
+    closeModal(modal)
+  );
   modal.addEventListener("click", (e) => {
     if (e.target === modal) closeModal(modal);
   });
+};
+
+
+const closeAllModals = () => {
+  document.querySelectorAll(".modal_is-opened").forEach(closeModal);
 };
 
 // === MODALS ===
@@ -110,14 +135,22 @@ addCardForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const newCard = {
     name: captionInput.value,
-    link: linkInput.value
+    link: linkInput.value,
   };
   cardsList.prepend(createCardElement(newCard));
   addCardForm.reset();
   closeModal(newPostModal);
 });
 
+// Close all modals on Escape key press
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    closeAllModals();
+  }
+});
+
+
 // === INITIAL CARDS ===
-initialCards.forEach(card => {
+initialCards.forEach((card) => {
   cardsList.append(createCardElement(card));
 });

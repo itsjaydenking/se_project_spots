@@ -81,8 +81,7 @@
       <!-- Edit Profile Modal -->
       <div class="modal" id="edit-profile-modal">
         <div class="modal__container">
-          <button type="button" class="modal__close-btn">
-          </button>
+          <button type="button" class="modal__close-btn"></button>
           <h2 class="modal__title">Edit Profile</h2>
           <form class="modal__form" id="edit-profile-form">
             <label for="profile-name-input" class="modal__label"
@@ -93,7 +92,11 @@
                 class="modal__input"
                 placeholder="Type your name"
                 required
-            /></label>
+                minlength="2"
+                maxlength="40"
+              />
+              <span class="modal__error"></span>
+            </label>
             <label for="profile-description-input" class="modal__label"
               >Description
 
@@ -103,7 +106,10 @@
                 class="modal__input"
                 placeholder="Describe yourself"
                 required
+                minlength="2"
+                maxlength="200"
               />
+              <span class="modal__error"></span>
             </label>
             <button type="submit" class="modal__submit-btn">Save</button>
           </form>
@@ -113,8 +119,7 @@
       <!-- New Post Modal -->
       <div class="modal" id="new-post-modal">
         <div class="modal__container">
-          <button type="button" class="modal__close-btn">
-          </button>
+          <button type="button" class="modal__close-btn"></button>
           <h2 class="modal__title">New post</h2>
           <form class="modal__form" id="new-post-form">
             <label for="image-link-input" class="modal__label"
@@ -125,7 +130,9 @@
                 class="modal__input"
                 placeholder="Paste a link to the picture"
                 required
-            /></label>
+                pattern="https?://.+" />
+              <span class="modal__error"></span
+            ></label>
             <label for="image-caption-input" class="modal__label"
               >Caption
               <input
@@ -134,7 +141,10 @@
                 class="modal__input"
                 placeholder="Type your caption"
                 required
-            /></label>
+                minlength="2"
+                maxlength="30" />
+              <span class="modal__error"></span
+            ></label>
             <button type="submit" class="modal__submit-btn">Save</button>
           </form>
         </div>
@@ -145,8 +155,7 @@
           <button
             type="button"
             class="modal__close-btn modal__close-btn_type_preview"
-          >
-          </button>
+          ></button>
           <img id="preview-image" class="modal__image" src="#" alt="" />
           <p id="preview-caption" class="modal__caption"></p>
         </div>
