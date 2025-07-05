@@ -29,8 +29,15 @@ const initialCards = [
 // === UTILITY FUNCTIONS ===
 const qs = (selector, parent = document) => parent.querySelector(selector);
 
-const openModal = (modal) => modal.classList.add("modal_is-opened");
-const closeModal = (modal) => modal.classList.remove("modal_is-opened");
+const openModal = (modal) => {
+  modal.classList.add("modal_is-opened");
+  document.addEventListener("keydown", handleEscape);
+};
+
+const closeModal = (modal) => {
+  modal.classList.remove("modal_is-opened");
+  document.removeEventListener("keydown", handleEscape);
+};
 
 const setupModalClose = (modal) => {
   qs(".modal__close-btn", modal).addEventListener("click", () =>
@@ -44,6 +51,12 @@ const setupModalClose = (modal) => {
 const closeAllModals = () => {
   document.querySelectorAll(".modal_is-opened").forEach(closeModal);
 };
+
+function handleEscape(e) {
+  if (e.key === "Escape") {
+    closeAllModals();
+  }
+}
 
 // === MODALS ===
 const editProfileModal = qs("#edit-profile-modal");
@@ -116,6 +129,7 @@ function createCardElement({ name, link }) {
 editProfileButton.addEventListener("click", () => {
   nameInput.value = profileName.textContent;
   descriptionInput.value = profileDescription.textContent;
+  resetValidation(profileForm, settings);
   openModal(editProfileModal);
 });
 
@@ -124,7 +138,6 @@ profileForm.addEventListener("submit", (e) => {
   e.preventDefault();
   profileName.textContent = nameInput.value;
   profileDescription.textContent = descriptionInput.value;
-  resetValidation(profileForm, settings);
   closeModal(editProfileModal);
 });
 
@@ -142,13 +155,6 @@ addCardForm.addEventListener("submit", (e) => {
   addCardForm.reset();
   disableButton(cardSubmitButton, settings);
   closeModal(newPostModal);
-});
-
-// Close all modals on Escape key press
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") {
-    closeAllModals();
-  }
 });
 
 // === INITIAL CARDS ===
