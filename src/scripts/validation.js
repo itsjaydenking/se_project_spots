@@ -97,5 +97,6 @@ const enableValidation = (settings) => {
   });
 };
 
-// === INITIALIZE ===
-enableValidation(settings);
+
+
+export {enableValidation, resetValidation, settings};
