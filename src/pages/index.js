@@ -1,3 +1,19 @@
+import {
+  enableValidation,
+  resetValidation,
+  settings,
+} from "../scripts/validation.js";
+import "./index.css";
+import logo from "../images/logo.svg";
+import avatar from "../images/jaydenKing.png";
+import editIcon from "../images/edit-icon.svg";
+import plusIcon from "../images/plus-icon.svg";
+
+document.querySelector(".header__logo").src = logo;
+document.querySelector(".profile__avatar").src = avatar;
+document.querySelector(".profile__edit-icon").src = editIcon;
+document.querySelector(".profile__new-post-icon").src = plusIcon;
+
 // === CONFIG ===
 const initialCards = [
   {
@@ -104,7 +120,7 @@ function createCardElement({ name, link }) {
   });
 
   deleteButton.addEventListener("click", () => {
-    if (confirm("Are you sure you want to delete?")) {
+    if (confirm(`Are you sure you want to delete the post: "${name}"? `)) {
       card.remove();
     }
   });
@@ -151,9 +167,10 @@ addCardForm.addEventListener("submit", (e) => {
     name: captionInput.value,
     link: linkInput.value,
   };
+
   cardsList.prepend(createCardElement(newCard));
   addCardForm.reset();
-  disableButton(cardSubmitButton, settings);
+  resetValidation(addCardForm, settings);
   closeModal(newPostModal);
 });
 
@@ -161,3 +178,6 @@ addCardForm.addEventListener("submit", (e) => {
 initialCards.forEach((card) => {
   cardsList.append(createCardElement(card));
 });
+
+// === INITIALIZE ===
+enableValidation(settings);
