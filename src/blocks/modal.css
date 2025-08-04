@@ -164,6 +164,38 @@
   display: inline-block;
 }
 
+.modal__container_type_confirm {
+  width: 440px;
+  padding: 36px;
+  text-align: center;
+}
+
+.modal__button-group {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+.modal__submit-btn_type_delete {
+  background-color: #ff6565;
+  border: none;
+}
+
+.modal__submit-btn_type_delete:hover {
+  background-color: #ff5252;
+}
+
+.modal__submit-btn_type_cancel {
+  background-color: #fff;
+  color: #212121;
+  border: 1px solid #212121;
+}
+
+.modal__submit-btn_type_cancel:hover {
+  background-color: #e0e0e0;
+}
+
 @media screen and (max-width: 630px) {
   .modal__container {
     padding: 12px;
