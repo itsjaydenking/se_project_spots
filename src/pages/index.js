@@ -59,12 +59,6 @@ const setupModalClose = (modal) => {
   });
 };
 
-function handleEscape(e) {
-  if (e.key === "Escape") {
-    closeAllModals();
-  }
-}
-
 // ========================================
 // DOM ELEMENT SELECTORS
 // ========================================
@@ -204,7 +198,7 @@ api
 
     // Render cards
     cards.forEach((card) => {
-      cardsList.append(createCardElement(card, userInfo));
+      cardsList.append(createCardElement(card));
     });
 
     // Update profile information
@@ -256,7 +250,7 @@ function handleNewPostFormSubmit(evt) {
     };
 
     return api.postNewCard(newCardData).then((cardData) => {
-      cardsList.prepend(createCardElement(cardData, currentUser));
+      cardsList.prepend(createCardElement(cardData));
       resetValidation(addCardForm, settings);
       closeModal(newPostModal);
     });
@@ -270,7 +264,7 @@ function handleDeleteConfirmation(evt) {
 
   if (cardToDelete) {
     const cardId = cardToDelete.dataset.cardId;
-    const submitButton = evt.submitter;
+    const submitButton = evt.target;
     const initialText = submitButton.textContent;
 
     renderLoading(true, submitButton, initialText, "Deleting...");
