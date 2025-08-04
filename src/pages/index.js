@@ -253,7 +253,7 @@ profileForm.addEventListener("submit", (e) => {
   setButtonLoading(submitButton, "Saving...");
 
   api
-    .editUserInfo([nameInput.value, descriptionInput.value])
+    .editUserInfo({ name: nameInput.value, about: descriptionInput.value })
     .then((userInfo) => {
       profileName.textContent = userInfo.name;
       profileDescription.textContent = userInfo.about;

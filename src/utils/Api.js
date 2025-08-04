@@ -4,6 +4,10 @@ class Api {
     this._headers = options.headers;
   }
 
+  // ========================================
+  // PRIVATE HELPER METHODS
+  // ========================================
+
   _checkResponse(res) {
     if (res.ok) {
       return res.json();
@@ -11,67 +15,75 @@ class Api {
     return Promise.reject(`Error: ${res.status}`);
   }
 
+  _request(endpoint, options = {}) {
+    return fetch(`${this._baseUrl}${endpoint}`, {
+      headers: this._headers,
+      ...options,
+    }).then(this._checkResponse);
+  }
+
+  // ========================================
+  // PUBLIC API METHODS
+  // ========================================
+
+  // === DATA FETCHING ===
+
   getAppInfo() {
     return Promise.all([this.getInitialCards(), this.getUserInfo()]);
   }
 
   getInitialCards() {
-    return fetch(`${this._baseUrl}/cards`, {
-      headers: this._headers,
-    }).then(this._checkResponse);
+    return this._request("/cards");
   }
 
   getUserInfo() {
-    return fetch(`${this._baseUrl}/users/me`, {
-      headers: this._headers,
-    }).then(this._checkResponse);
+    return this._request("/users/me");
   }
 
-  editUserInfo([name, about]) {
-    return fetch(`${this._baseUrl}/users/me`, {
+  // === USER PROFILE MANAGEMENT ===
+
+  editUserInfo({ name, about }) {
+    return this._request("/users/me", {
       method: "PATCH",
-      headers: this._headers,
       body: JSON.stringify({ name, about }),
-    }).then(this._checkResponse);
+    });
   }
+
+  updateUserAvatar({ avatar }) {
+    return this._request("/users/me/avatar", {
+      method: "PATCH",
+      body: JSON.stringify({ avatar }),
+    });
+  }
+
+  // === CARD MANAGEMENT ===
 
   postNewCard(cardData) {
-    return fetch(`${this._baseUrl}/cards`, {
+    return this._request("/cards", {
       method: "POST",
-      headers: this._headers,
       body: JSON.stringify(cardData),
-    }).then(this._checkResponse);
+    });
   }
 
   deleteCard(cardId) {
-    return fetch(`${this._baseUrl}/cards/${cardId}`, {
+    return this._request(`/cards/${cardId}`, {
       method: "DELETE",
-      headers: this._headers,
-    }).then(this._checkResponse);
+    });
   }
 
+  // === LIKE FUNCTIONALITY ===
+
   likeCard(cardId) {
-    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+    return this._request(`/cards/${cardId}/likes`, {
       method: "PUT",
-      headers: this._headers,
-    }).then(this._checkResponse);
+    });
   }
 
   dislikeCard(cardId) {
-    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+    return this._request(`/cards/${cardId}/likes`, {
       method: "DELETE",
-      headers: this._headers,
-    }).then(this._checkResponse);
-  }
-
-  updateUserAvatar(avatarData) {
-    return fetch(`${this._baseUrl}/users/me/avatar`, {
-      method: "PATCH",
-      headers: this._headers,
-      body: JSON.stringify(avatarData),
-    }).then(this._checkResponse);
+    });
   }
 }
 
-// export the class
 export default Api;
