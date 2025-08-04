@@ -150,16 +150,22 @@ function createCardElement(cardData, userInfo) {
   cardTitle.textContent = cardData.name;
   card.dataset.cardId = cardData._id;
 
+  // Check if card is already liked by current user
+  const isLiked = cardData.isLiked;
+
+  // Set initial like state
+  if (isLiked) {
+    likeButton.classList.add("card__like-button_active");
+  }
+
   // === CARD EVENT LISTENERS ===
 
   // Like/Unlike functionality
   likeButton.addEventListener("click", () => {
     const cardId = cardData._id;
-    const isCurrentlyLiked = likeButton.classList.contains(
-      "card__like-button_active"
-    );
+    const isLiked = likeButton.classList.contains("card__like-button_active");
 
-    if (isCurrentlyLiked) {
+    if (isLiked) {
       // Dislike the card
       api
         .dislikeCard(cardId)
@@ -340,7 +346,6 @@ deleteConfirmButton.addEventListener("click", () => {
       });
   }
 });
-
 
 deleteCancelButton.addEventListener("click", () => {
   cardToDelete = null;
